@@ -15,9 +15,8 @@ public class TrackCheckpoints : MonoBehaviour{
             checkpointList.Add(checkpoint);
         }
         foreach(Transform child in vehicles){
-            Transform vehicle = child.GetComponent<Transform>();
-            vehicleList.Add(vehicle);
-            nextCheckpoint.Add(0);
+            vehicleList.Add(child);
+            nextCheckpoint.Add(1);
         }
     }
 

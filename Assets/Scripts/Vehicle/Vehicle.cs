@@ -5,13 +5,14 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour{
     public int position;
     public int checkpoint;
+    public float traveledDistance;
     [SerializeField]public List<Wheel> wheels;
     private VehicleMovement movement;
     private InputType input;
 
     void Awake(){
         position = 0;
-        checkpoint = 0;
+        checkpoint = 1;
         movement = GetComponent<VehicleMovement>();
         input = GetComponent<InputType>();
     }

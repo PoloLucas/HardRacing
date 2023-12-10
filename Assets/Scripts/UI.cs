@@ -13,6 +13,10 @@ public class UI : MonoBehaviour{
         FinishLine.raceFinish += TurnOnFinishPanel;
     }
 
+    public void Update(){
+        positionText.text = player.position + ".°";
+    }
+
     public void TurnOnFinishPanel(){
         if(!player.enabled){
             positionText.text = player.position + ".°";
