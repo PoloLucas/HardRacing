@@ -26,10 +26,9 @@ public class TrackCheckpoints : MonoBehaviour{
         if(checkpointList.IndexOf(checkpoint) == passedCheckpoint){
             nextCheckpoint[vehicleList.IndexOf(vehicle)]++;
             racerStatus.checkpoint++;
-            //Debug.Log("Next");
-        }
-        if(checkpoint.tag == "FinishLine"){
-            checkpoint.GetComponent<FinishLine>().SetFinishPosition(racerStatus);
+            if(checkpoint.tag == "FinishLine"){
+                checkpoint.GetComponent<FinishLine>().SetFinishPosition(racerStatus);
+            }
         }
     }
 }

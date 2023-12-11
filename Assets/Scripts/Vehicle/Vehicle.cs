@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour{
+    public int speed;
     public int position;
     public int checkpoint;
     public float traveledDistance;
@@ -11,7 +12,6 @@ public class Vehicle : MonoBehaviour{
     private InputType input;
 
     void Awake(){
-        position = 0;
         checkpoint = 1;
         movement = GetComponent<VehicleMovement>();
         input = GetComponent<InputType>();
@@ -21,6 +21,7 @@ public class Vehicle : MonoBehaviour{
         Move(input.yAxis);
         Turn(input.xAxis);
         RotateWheels(input.xAxis, input.yAxis);
+        SimulatedSpeed();
     }
 
     void Move(float yAxisValue){
@@ -39,5 +40,10 @@ public class Vehicle : MonoBehaviour{
         foreach(Wheel wheel in wheels){
             wheel.RotateWheel(xAxisValue, yAxisValue, movement.speed);
         }
+    }
+
+    void SimulatedSpeed(){
+        float realSpeed = Mathf.Clamp(movement.speed, 0, movement.maxSpeed - 0.3f) * 3;
+        speed = (int) realSpeed;
     }
 }

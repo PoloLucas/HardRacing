@@ -9,9 +9,9 @@ public class FinishLine : MonoBehaviour{
     private int finishPosition = 1;
 
     public void SetFinishPosition(Vehicle vehicle){
-        vehicle.position = finishPosition;
         vehicle.enabled = false;
-        finishPosition++;
+        vehicle.position = finishPosition;
         raceFinish();
+        finishPosition++;
     }
 }
