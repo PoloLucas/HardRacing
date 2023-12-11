@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VehiclePositioner : MonoBehaviour{
+    public delegate void CheckedPositions();
+    public static CheckedPositions checkedPositions;
     private BubbleSort bubbleSort;
     [SerializeField]private Transform vehicles;
     [SerializeField]private Transform checkpoints;
@@ -27,7 +29,10 @@ public class VehiclePositioner : MonoBehaviour{
             Vector3 currentCheckpoint = checkpointList[vehicle.checkpoint - 1].position;
             Vector3 nextCheckpoint = checkpointList[vehicle.checkpoint].position;
             vehicle.traveledDistance = vehicle.checkpoint + bubbleSort.InverseLerp(currentCheckpoint, nextCheckpoint, child.position);
-            vehicle.position = vehicleList.IndexOf(child) + 1;
+            if(vehicle.enabled){
+                vehicle.position = vehicleList.IndexOf(child) + 1;
+            }
         }
+        checkedPositions();
     }
 }

@@ -10,7 +10,6 @@ public class Menu : MonoBehaviour
     public void EmpezarNivel(string NombreNivel)
     {
         SceneManager.LoadScene(NombreNivel);
-        Debug.Log("Con este Boton comienza el Juego");
     }
 
     public void Salir()
