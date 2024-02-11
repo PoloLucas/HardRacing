@@ -640,14 +640,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8938995275167682826}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db752a229e3fade40ad85ed943d32683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: 4
-  checkpoint: 0
-  traveledDistance: 0
+  vehicleData: {fileID: 11400000, guid: a2f97b641617aef4e9eb1a389c4f6e17, type: 2}
   wheels:
   - {fileID: 9205127540971505843}
   - {fileID: 2281869145594800896}
@@ -665,11 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4036aa1c563090c46a5ad98f1c0cda45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  maxSpeed: 33
-  acceleration: 3
-  brakingForce: 2
-  turningSpeed: 40
 --- !u!114 &8938995275167683062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,8 +675,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6a9282b163abe48901f908349b747b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   xAxis: 0
   yAxis: 0
+  vehicleList:
+  - {fileID: 11400000, guid: 05a7fcf729a171a43b1fd26ce1db3405, type: 2}
+  - {fileID: 11400000, guid: 397b5f9a84de21a479afdf997ab83d36, type: 2}
+  - {fileID: 11400000, guid: dc960ff2f929d684f9d8ce814ac7b897, type: 2}
+  - {fileID: 11400000, guid: 80a0fecc0ad8d64468fa3510fd4ff1d9, type: 2}
+  - {fileID: 11400000, guid: 5d78866f63739494a93c79d2832836c8, type: 2}
+  - {fileID: 11400000, guid: 0302d76854386b14da18af72ff64718d, type: 2}
+  - {fileID: 11400000, guid: a2f97b641617aef4e9eb1a389c4f6e17, type: 2}
+  - {fileID: 11400000, guid: 3f120fa09826a414093f2c7d7a158e94, type: 2}
+  - {fileID: 11400000, guid: 40631bab4e06a8e48b5e868fc5d36293, type: 2}
+  - {fileID: 11400000, guid: f46f4536f70ab6a4299e1702da17f018, type: 2}
 --- !u!1 &9151215748737205646
 GameObject:
   m_ObjectHideFlags: 0

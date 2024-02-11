@@ -4,39 +4,30 @@ using UnityEngine;
 
 public class VehicleMovement : MonoBehaviour{
     private Rigidbody body;
-    public float speed;
-    public float maxSpeed = 35;
-    public float acceleration = 2;
-    public float brakingForce = 3;
-    public float turningSpeed = 20;
+    private float bodySpeed;
 
     void Awake(){
-        speed = 0;
         body = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate(){
-        GetSpeed();
+    public float GetSpeed(){
+        bodySpeed = transform.InverseTransformDirection(body.velocity).z;
+        return bodySpeed;
     }
 
-    public void GetSpeed(){
-        speed = transform.InverseTransformDirection(body.velocity).z;
-        //Debug.Log(speed);
-    }
-
-    public void Accelerate(float yAxis){
-        if(speed < maxSpeed){
+    public void Accelerate(float yAxis, float maxSpeed, float acceleration){
+        if(bodySpeed - 0.2f < maxSpeed){
             body.AddRelativeForce(Vector3.forward*yAxis*acceleration, ForceMode.Force);
         }
     }
 
-    public void Brake(float yAxis){
-        if(speed > 0){
+    public void Brake(float yAxis, float brakingForce){
+        if(bodySpeed > 0){
             body.AddRelativeForce(Vector3.forward*yAxis*brakingForce, ForceMode.Force);
         }
     }
 
-    public void Turn(float turn){
+    public void Turn(float turn, float turningSpeed){
         Vector3 turningRotation = new Vector3(0, turn*turningSpeed, 0);
         Quaternion rotation = Quaternion.Euler(turningRotation*Time.deltaTime);
         body.MoveRotation(body.rotation*rotation);
