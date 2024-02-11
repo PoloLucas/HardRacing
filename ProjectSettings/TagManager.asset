@@ -7,6 +7,9 @@ TagManager:
   - Checkpoints
   - FrontWheel
   - FinishLine
+  - Bullet
+  - VehicleParent
+  - PhotonManager
   layers:
   - Default
   - TransparentFX

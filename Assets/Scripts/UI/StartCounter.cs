@@ -5,29 +5,25 @@ using TMPro;
 
 public class StartCounter : MonoBehaviour{
     [SerializeField]private TextMeshProUGUI counterText;
-    private int counter = 3;
+    private string counterGo = "¡YA!";
+    private int counter;
 
-    void Awake(){
-        InvokeRepeating("StartCounterUI", 1f, 1f);
+    public void OnEnable(){
+        StartCoroutine(StartRaceCounter());
     }
-
-    void StartCounterUI(){
+ 
+    public IEnumerator StartRaceCounter(){
+        counter = 3;
         counterText.text = counter.ToString();
-        switch(counter){
-            case 3:{
-                gameObject.SetActive(true);
-                break;
-            }
-            case 0:{
-                counterText.text = "¡YA!";
-                break;
-            }
-            case -1:{
-                gameObject.SetActive(false);
-                CancelInvoke();
-                break;
-            }
-        }
-        counter--;
+        yield return new WaitForSeconds(1f);
+        counter = 2;
+        counterText.text = counter.ToString();
+        yield return new WaitForSeconds(1f);
+        counter = 1;
+        counterText.text = counter.ToString();
+        yield return new WaitForSeconds(1f);
+        counterText.text = counterGo;
+        yield return new WaitForSeconds(1.2f);
+        gameObject.SetActive(false);
     }
 }

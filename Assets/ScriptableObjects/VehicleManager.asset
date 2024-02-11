@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f81886ca49d9f4a8ec1425ac8e3184, type: 3}
+  m_Name: VehicleManager
+  m_EditorClassIdentifier: 
+  cpuDefaultNames:
+  - CPU1
+  - CPU2
+  - CPU3
+  - CPU4
+  - CPU5
+  - CPU6
+  - CPU7
+  - CPU8
+  - CPU9
+  - CPU10
+  playerDefaultNames:
+  - Jugador 1
+  - Jugador 2
+  - Jugador 3
+  - Jugador 4
+  - Jugador 5
+  - Jugador 6
+  - Jugador 7
+  - Jugador 8
+  - Jugador 9
+  - Jugador 10
+  basePosition: 0a000000090000000800000007000000060000000500000004000000030000000200000001000000
+  baseMaxSpeed:
+  - 32
+  - 32
+  - 32
+  - 32
+  - 33
+  - 33
+  - 33
+  - 33
+  - 34
+  - 34
+  baseAcceleration: 3
+  baseTurningSpeed: 40
+  basePlayerMaxSpeed: 35
+  basePlayerAcceleration: 2.2
+  basePlayerTurningSpeed: 60
+  multiplayerSpeedHandicap: 2

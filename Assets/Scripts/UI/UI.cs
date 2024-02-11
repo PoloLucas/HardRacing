@@ -4,41 +4,44 @@ using UnityEngine;
 using TMPro;
 
 public class UI : MonoBehaviour{
+    [SerializeField]private CursorView cursor;
+    [SerializeField]private NameList names;
     [SerializeField]private GameObject finishPanel;
     [SerializeField]private TextMeshProUGUI positionText;
     [SerializeField]private TextMeshProUGUI speedText;
-    [SerializeField]private Transform names;
-    [SerializeField]private Transform vehicles;
-    private List<RectTransform> nameList = new List<RectTransform>();
-    private List<Vehicle> vehicleList = new List<Vehicle>();
+    [SerializeField]private List<RectTransform> nameList = new List<RectTransform>();
+    [SerializeField]private List<VehicleData> vehicleList = new List<VehicleData>();
 
     void Awake(){
         FinishLine.raceFinish += TurnOnFinishPanel;
-        VehiclePositioner.checkedPositions += UpdatePositions;
-        foreach(RectTransform child in names){
-            nameList.Add(child);
-        }
-        foreach(Transform child in vehicles){
-            Vehicle vehicle = child.GetComponent<Vehicle>();
-            vehicleList.Add(vehicle);
-        }
-        InvokeRepeating("UpdateSpeed", 0f, 0.05f);
+        VehiclePositioner.checkedPositions += UpdatePositionList;
+        names.SetNames(vehicleList);
+        InvokeRepeating("UpdatePosition", 0.25f, 0.1f);
+        InvokeRepeating("UpdateSpeed", 0.25f, 0.05f);
+        cursor.HideCursor();
     }
 
-    public void UpdatePositions(){
-        positionText.text = vehicleList[9].position + ".°";
-        for(int i = 0; i < nameList.Count; i++){
-            nameList[i].anchoredPosition = new Vector2(0, -20*(vehicleList[i].position-1));
+    public void UpdatePositionList(){
+        for(int i = 0; i < vehicleList.Count; i++){
+            if(nameList[i] != null){
+                nameList[i].anchoredPosition = new Vector2(0, -20*(vehicleList[i].Position-1));
+            }
         }
+    }
+
+    public void UpdatePosition(){
+        TurnOnFinishPanel();
+        positionText.text = vehicleList[0].Position + ".°";
     }
 
     public void UpdateSpeed(){
-        speedText.text = vehicleList[9].speed + "<size=55%> km/h";
+        speedText.text = vehicleList[0].Speed + "<size=55%> km/h";
     }
 
     public void TurnOnFinishPanel(){
-        if(!vehicleList[9].enabled){
+        if(vehicleList[0].Status == 2 && finishPanel != null){
             finishPanel.SetActive(true);
+            cursor.ShowCursor();
         }
     }
 }

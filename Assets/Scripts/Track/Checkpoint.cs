@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour{
 
     private void OnTriggerEnter(Collider other){
         if(other.GetComponent<Vehicle>()){
-            trackCheckpoints.PassedCheckpoint(this, other.transform);
+            trackCheckpoints.PassedCheckpoint(this, other.GetComponent<Vehicle>().vehicleData);
         }
     }
 

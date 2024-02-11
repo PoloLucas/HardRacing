@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RaceStart : MonoBehaviour{
-    [SerializeField]private Transform vehicles;
+    [SerializeField]private GameModeManager gameModeManager;
+    [SerializeField]private GameObject startCounterUi;
     private int counter = 3;
 
     void Awake(){
-        InvokeRepeating("StartCounter", 1f, 1f);
+        if(gameModeManager.IsOnline){
+            InvokeRepeating("StartCounter", 3f, 1f);
+        }else{
+            InvokeRepeating("StartCounter", 1f, 1f);
+        }
     }
 
-    void StartCounter(){
+    public void StartCounter(){
+        startCounterUi.SetActive(true);
         if(counter <= 0){
-            foreach(Transform child in vehicles){
-                child.GetComponent<Vehicle>().enabled = true;
+            foreach(VehicleData vehicle in gameModeManager.VehicleList){
+                vehicle.Status = 1;
             }
             CancelInvoke();
         }
