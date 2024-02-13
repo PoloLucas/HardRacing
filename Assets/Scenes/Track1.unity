@@ -8350,17 +8350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404929bf5cb8d3c4aa804d9038b7cdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleList:
-  - {fileID: 11400000, guid: 05a7fcf729a171a43b1fd26ce1db3405, type: 2}
-  - {fileID: 11400000, guid: 397b5f9a84de21a479afdf997ab83d36, type: 2}
-  - {fileID: 11400000, guid: dc960ff2f929d684f9d8ce814ac7b897, type: 2}
-  - {fileID: 11400000, guid: 80a0fecc0ad8d64468fa3510fd4ff1d9, type: 2}
-  - {fileID: 11400000, guid: 5d78866f63739494a93c79d2832836c8, type: 2}
-  - {fileID: 11400000, guid: 0302d76854386b14da18af72ff64718d, type: 2}
-  - {fileID: 11400000, guid: a2f97b641617aef4e9eb1a389c4f6e17, type: 2}
-  - {fileID: 11400000, guid: 3f120fa09826a414093f2c7d7a158e94, type: 2}
-  - {fileID: 11400000, guid: 40631bab4e06a8e48b5e868fc5d36293, type: 2}
-  - {fileID: 11400000, guid: f46f4536f70ab6a4299e1702da17f018, type: 2}
   gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
   startCounterUi: {fileID: 1843062776}
 --- !u!114 &1193090580
@@ -11220,7 +11209,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVehicles:
-  - {fileID: 8938995275167682826, guid: b557cac866ea2854ebae7c9c83153069, type: 3}
+  - {fileID: 8938995275167682826, guid: c3daacf8d445e5345824c8288ed01f1e, type: 3}
+  - {fileID: 8938995275167682826, guid: 002c164cf280dfa47a84eac4cf829065, type: 3}
+  - {fileID: 8938995275167682826, guid: 069c5fed6eb277e4e96e365481766bc1, type: 3}
+  - {fileID: 8938995275167682826, guid: d95ae7418f1b7064eb695579c1742b5c, type: 3}
+  - {fileID: 8938995275167682826, guid: 04e8ab57755a3c34ea346e23aea540a4, type: 3}
+  - {fileID: 8938995275167682826, guid: 6e91e30ce0f08054bbf6574dc13bd497, type: 3}
+  - {fileID: 8938995275167682826, guid: acd9cc1d4092a6644a93179ca636d6c7, type: 3}
+  - {fileID: 8938995275167682826, guid: a0cb48671218b2f4ba641a230b19ddf8, type: 3}
+  - {fileID: 8938995275167682826, guid: 8f115a578da70ba4d81b80b9d01dfd91, type: 3}
+  - {fileID: 8938995275167682826, guid: fa919714551c0bb47a29c2d8c0e9848f, type: 3}
   cpuVehicles:
   - {fileID: 8938995275167682826, guid: fc9747aa6f09f504f89800508233af65, type: 3}
   - {fileID: 8938995275167682826, guid: 0bdd6226fefff634292e28183c2d5f17, type: 3}
@@ -11232,17 +11230,6 @@ MonoBehaviour:
   - {fileID: 8938995275167682826, guid: 19377005c7e296145a0839bb6e132629, type: 3}
   - {fileID: 8938995275167682826, guid: 709637aad169fea418ff0faab61057c1, type: 3}
   - {fileID: 8938995275167682826, guid: 3ba291d1c973b1741b65c0cf62e31d7b, type: 3}
-  vehicleList:
-  - {fileID: 11400000, guid: 05a7fcf729a171a43b1fd26ce1db3405, type: 2}
-  - {fileID: 11400000, guid: 397b5f9a84de21a479afdf997ab83d36, type: 2}
-  - {fileID: 11400000, guid: dc960ff2f929d684f9d8ce814ac7b897, type: 2}
-  - {fileID: 11400000, guid: 80a0fecc0ad8d64468fa3510fd4ff1d9, type: 2}
-  - {fileID: 11400000, guid: 5d78866f63739494a93c79d2832836c8, type: 2}
-  - {fileID: 11400000, guid: 0302d76854386b14da18af72ff64718d, type: 2}
-  - {fileID: 11400000, guid: a2f97b641617aef4e9eb1a389c4f6e17, type: 2}
-  - {fileID: 11400000, guid: 3f120fa09826a414093f2c7d7a158e94, type: 2}
-  - {fileID: 11400000, guid: 40631bab4e06a8e48b5e868fc5d36293, type: 2}
-  - {fileID: 11400000, guid: f46f4536f70ab6a4299e1702da17f018, type: 2}
   spawnerList:
   - {fileID: 1235016973}
   - {fileID: 1910879549}
@@ -13507,6 +13494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2448ae20a864e4fb7ee90e9705c633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
   cursor: {fileID: 1808713196}
   names: {fileID: 1808713198}
   finishPanel: {fileID: 2074115184}
@@ -14447,6 +14435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
   vehicleManager: {fileID: 11400000, guid: bd791311b9f0d1948bc5bbf11b212dee, type: 2}
+  photonView: {fileID: 0}
 --- !u!4 &1984635738
 Transform:
   m_ObjectHideFlags: 0
