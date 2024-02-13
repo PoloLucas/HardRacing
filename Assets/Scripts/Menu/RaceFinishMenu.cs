@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class RaceFinishMenu : MonoBehaviour{
     [SerializeField]private GameModeManager gameModeManager;
@@ -16,7 +18,9 @@ public class RaceFinishMenu : MonoBehaviour{
         gameModeManager.SetFinishingPlayers();
         if(gameModeManager.FinishingPlayers == gameModeManager.PlayerList.Count){
             if(gameModeManager.IsOnline){
-                lobbyButton.SetActive(true);
+                if(PhotonNetwork.IsMasterClient){
+                    lobbyButton.SetActive(true);
+                }
             }else{
                 restartButton.SetActive(true);
                 quitButton.SetActive(true);

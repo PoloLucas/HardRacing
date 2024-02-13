@@ -8,6 +8,7 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviour{
     [SerializeField]private GameModeManager gameModeManager;
     [SerializeField]private VehicleManager vehicleManager;
+    [SerializeField]private PhotonView photonView;
 
     void Awake(){
         if(SceneManager.GetActiveScene().name == "MainMenu"){
@@ -33,8 +34,12 @@ public class GameManager : MonoBehaviour{
         vehicleManager.SetPlayerValues(gameModeManager.VehicleList[0]);
         gameModeManager.SetPlayerList();
     }
-
     public void StartOnlineRace(){
+        photonView.RPC("SyncPlayerInfo", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void SyncPlayerInfo(){
         gameModeManager.IsOnline = true;
         foreach(Player player in PhotonNetwork.PlayerList){
             vehicleManager.SetPlayerValues(gameModeManager.VehicleList[player.ActorNumber-1]);

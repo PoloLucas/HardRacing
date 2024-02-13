@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &109510260305914331
 Transform:
   m_ObjectHideFlags: 0
@@ -761,11 +761,11 @@ GameObject:
   - component: {fileID: 2216799220369498333}
   - component: {fileID: 8938995275167683063}
   - component: {fileID: 8938995275167683060}
-  - component: {fileID: 5264966620944191038}
-  - component: {fileID: 1418295670757080250}
-  - component: {fileID: -868257698718243752}
-  - component: {fileID: 4281630843462836258}
-  - component: {fileID: -9158668409653464124}
+  - component: {fileID: 6482585438213039228}
+  - component: {fileID: -658464354478949036}
+  - component: {fileID: -2027007282883031433}
+  - component: {fileID: -2450823459361547030}
+  - component: {fileID: 4172188183506093586}
   m_Layer: 0
   m_Name: Vehicle1
   m_TagString: Player
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4036aa1c563090c46a5ad98f1c0cda45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5264966620944191038
+--- !u!114 &6482585438213039228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -858,13 +858,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8938995275167682826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11a9430c8fc1912469337c66338515a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f6a9282b163abe48901f908349b747b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
   xAxis: 0
   yAxis: 0
---- !u!114 &1418295670757080250
+  vehicleList:
+  - {fileID: 11400000, guid: 05a7fcf729a171a43b1fd26ce1db3405, type: 2}
+  - {fileID: 11400000, guid: 397b5f9a84de21a479afdf997ab83d36, type: 2}
+  - {fileID: 11400000, guid: dc960ff2f929d684f9d8ce814ac7b897, type: 2}
+  - {fileID: 11400000, guid: 80a0fecc0ad8d64468fa3510fd4ff1d9, type: 2}
+  - {fileID: 11400000, guid: 5d78866f63739494a93c79d2832836c8, type: 2}
+  - {fileID: 11400000, guid: 0302d76854386b14da18af72ff64718d, type: 2}
+  - {fileID: 11400000, guid: a2f97b641617aef4e9eb1a389c4f6e17, type: 2}
+  - {fileID: 11400000, guid: 3f120fa09826a414093f2c7d7a158e94, type: 2}
+  - {fileID: 11400000, guid: 40631bab4e06a8e48b5e868fc5d36293, type: 2}
+  - {fileID: 11400000, guid: f46f4536f70ab6a4299e1702da17f018, type: 2}
+--- !u!114 &-658464354478949036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -873,12 +884,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8938995275167682826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e014f318781ace48996a33c4b29660b, type: 3}
+  m_Script: {fileID: 11500000, guid: b81cf5c8baf21d2438284711d6bfde39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 6615747742799390994}
-  photonView: {fileID: -868257698718243752}
---- !u!114 &-868257698718243752
+  scriptsToIgnore:
+  - {fileID: 8938995275167683060}
+  - {fileID: 6482585438213039228}
+  - {fileID: -658464354478949036}
+  gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
+--- !u!114 &-2027007282883031433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -897,12 +911,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4281630843462836258}
-  - {fileID: -9158668409653464124}
+  - {fileID: -2450823459361547030}
+  - {fileID: 4172188183506093586}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4281630843462836258
+--- !u!114 &-2450823459361547030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -916,11 +930,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PositionModel:
     SynchronizeEnabled: 1
-    TeleportEnabled: 1
+    TeleportEnabled: 0
     TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
+    InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
+    InterpolateLerpSpeed: 2
     ExtrapolateOption: 0
     ExtrapolateSpeed: 1
     ExtrapolateIncludingRoundTripTime: 1
@@ -935,7 +949,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-9158668409653464124
+--- !u!114 &4172188183506093586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

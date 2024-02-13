@@ -36,6 +36,7 @@ public class VehicleManager : ScriptableObject{
         vehicle.Status = 0;
         vehicle.Checkpoint = 1;
         vehicle.TraveledDistance = 1;
+        vehicle.TrackPosition = new Vector3(0, 0, 0);
     }
 
     public void SetPlayerName(VehicleData vehicle, string newName){
