@@ -7,11 +7,12 @@ using Photon.Realtime;
 public class PlayerCamera : MonoBehaviour{
     [SerializeField]private GameObject playerCamera;
     [SerializeField]private GameModeManager gameModeManager;
-    [SerializeField]private VehicleData vehicle;
+    private PhotonView photonView;
 
     void Awake(){
+        photonView = GetComponent<PhotonView>();
         if(gameModeManager.IsOnline){
-            if(PhotonNetwork.LocalPlayer.ActorNumber == vehicle.Id){
+            if(photonView.IsMine){
                 playerCamera.SetActive(true);
             }
         }else{

@@ -708,7 +708,6 @@ MonoBehaviour:
   scriptsToIgnore:
   - {fileID: 8938995275167683060}
   - {fileID: 8938995275167683062}
-  - {fileID: -1687835621887298}
   gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
 --- !u!114 &946171686086399749
 MonoBehaviour:
@@ -759,7 +758,7 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 1
+    InterpolateOption: 2
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
