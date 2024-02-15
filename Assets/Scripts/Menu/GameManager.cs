@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 
 public class GameManager : MonoBehaviour{
@@ -46,8 +47,8 @@ public class GameManager : MonoBehaviour{
     [PunRPC]public void SyncPlayerInfo(string levelName){
         gameModeManager.IsOnline = true;
         foreach(Player player in PhotonNetwork.PlayerList){
-            vehicleManager.SetPlayerValues(gameModeManager.VehicleList[player.ActorNumber-1]);
-            vehicleManager.SetPlayerName(gameModeManager.VehicleList[player.ActorNumber-1], player.NickName);
+            vehicleManager.SetPlayerValues(gameModeManager.VehicleList[player.GetPlayerNumber()]);
+            vehicleManager.SetPlayerName(gameModeManager.VehicleList[player.GetPlayerNumber()], player.NickName);
         }
         gameModeManager.SetPlayerList();
         networkConfig.LoadLevel(levelName);
