@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   isPlayer: 1
-  playerName: "ertetretetre\u200B"
-  trackPosition: {x: 115.30546, y: 0.5, z: 323.04056}
+  playerName: "wer\u200B"
+  trackPosition: {x: 111.66285, y: 0.5, z: 315.23456}
   status: 1
   position: 10
   checkpoint: 5
-  traveledDistance: 5.9385896
+  traveledDistance: 5.710371
   speed: 0
   maxSpeed: 35
   acceleration: 2.2

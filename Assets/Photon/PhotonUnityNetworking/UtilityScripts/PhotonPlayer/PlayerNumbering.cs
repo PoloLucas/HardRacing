@@ -56,7 +56,7 @@ namespace Photon.Pun.UtilityScripts
         /// <summary>
         /// dont destroy on load flag for this Component's GameObject to survive Level Loading.
         /// </summary>
-        public bool dontDestroyOnLoad = false;
+        public bool dontDestroyOnLoad = true;
 
 
         #endregion

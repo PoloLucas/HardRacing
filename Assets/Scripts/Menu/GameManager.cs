@@ -8,9 +8,12 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviour{
     [SerializeField]private GameModeManager gameModeManager;
     [SerializeField]private VehicleManager vehicleManager;
-    [SerializeField]private PhotonView photonView;
+    private NetworkConfig networkConfig;
+    private PhotonView photonView;
 
     void Awake(){
+        networkConfig = GetComponent<NetworkConfig>();
+        photonView = GetComponent<PhotonView>();
         if(SceneManager.GetActiveScene().name == "MainMenu"){
             ResetVehicles();
             gameModeManager.ResetPlayerList();
@@ -29,23 +32,25 @@ public class GameManager : MonoBehaviour{
         Debug.Log("Con este Boton se cierra el Juego");
     }
 
-    public void StartOfflineRace(){
+    public void StartOfflineRace(string levelName){
         gameModeManager.IsOnline = false;
         vehicleManager.SetPlayerValues(gameModeManager.VehicleList[0]);
         gameModeManager.SetPlayerList();
-    }
-    public void StartOnlineRace(){
-        photonView.RPC("SyncPlayerInfo", RpcTarget.All);
+        LoadScene(levelName);
     }
 
-    [PunRPC]
-    public void SyncPlayerInfo(){
+    public void StartOnlineRace(string levelName){
+        photonView.RPC("SyncPlayerInfo", RpcTarget.All, levelName);
+    }
+
+    [PunRPC]public void SyncPlayerInfo(string levelName){
         gameModeManager.IsOnline = true;
         foreach(Player player in PhotonNetwork.PlayerList){
             vehicleManager.SetPlayerValues(gameModeManager.VehicleList[player.ActorNumber-1]);
             vehicleManager.SetPlayerName(gameModeManager.VehicleList[player.ActorNumber-1], player.NickName);
         }
         gameModeManager.SetPlayerList();
+        networkConfig.LoadLevel(levelName);
     }
 
     public void ResetVehicles(){

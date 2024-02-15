@@ -896,7 +896,6 @@ MonoBehaviour:
   - {fileID: 8938995275167683060}
   - {fileID: 768267744840108499}
   - {fileID: -7951296333446567025}
-  - {fileID: 8171092785861372986}
   gameModeManager: {fileID: 11400000, guid: 028bdf4fd4a01ee4aac70859a445a4c7, type: 2}
 --- !u!114 &-4533648097727581161
 MonoBehaviour:
@@ -947,7 +946,7 @@ MonoBehaviour:
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 1
+    InterpolateOption: 2
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:

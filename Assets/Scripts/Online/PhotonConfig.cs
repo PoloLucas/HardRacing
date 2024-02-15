@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 
 public class PhotonConfig : MonoBehaviourPunCallbacks{
@@ -45,7 +46,7 @@ public class PhotonConfig : MonoBehaviourPunCallbacks{
     }
 
     public override void OnJoinedLobby(){
-        PhotonNetwork.JoinOrCreateRoom("Sala", new RoomOptions {MaxPlayers = 2}, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions {MaxPlayers = 10}, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom(){
@@ -55,6 +56,5 @@ public class PhotonConfig : MonoBehaviourPunCallbacks{
 
     public void LoadLevel(string levelName){
         PhotonNetwork.LoadLevel(levelName);
-        Debug.Log("Nivel cargado");
     }
 }

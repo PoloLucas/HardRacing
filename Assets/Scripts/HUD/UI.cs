@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 
 public class UI : MonoBehaviour{
@@ -18,7 +19,7 @@ public class UI : MonoBehaviour{
 
     void Awake(){
         if(gameModeManager.IsOnline){
-            playerNumber = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+            playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
         }else{
             playerNumber = 0;
         }
@@ -33,7 +34,7 @@ public class UI : MonoBehaviour{
     public void UpdatePositionList(){
         for(int i = 0; i < vehicleList.Count; i++){
             if(nameList[i] != null){
-                nameList[i].anchoredPosition = new Vector2(0, -20*(vehicleList[i].Position-1));
+                nameList[i].anchoredPosition = new Vector2(0, -50*(vehicleList[i].Position-1));
             }
         }
     }

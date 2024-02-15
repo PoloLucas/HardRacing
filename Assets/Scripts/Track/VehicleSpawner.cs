@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 
 public class VehicleSpawner : MonoBehaviour{
@@ -19,7 +20,7 @@ public class VehicleSpawner : MonoBehaviour{
     }
 
     public void SpawnOnlineVehicles(){
-        int playerNumber = PhotonNetwork.LocalPlayer.ActorNumber - 1;
+        int playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
         PhotonNetwork.Instantiate(playerVehicles[playerNumber].name, spawnerList[playerNumber].position, spawnerList[playerNumber].rotation);
         for(int i = 0; i < spawnerList.Count; i++){
             if(!gameModeManager.VehicleList[i].IsPlayer && PhotonNetwork.IsMasterClient){
