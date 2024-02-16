@@ -13,7 +13,7 @@ public class OnlineLobby : MonoBehaviour{
     }
 
     public void CheckPlayerCount(){
-        if(PhotonNetwork.PlayerList.Length >= 1 && PhotonNetwork.IsMasterClient){
+        if(PhotonNetwork.PlayerList.Length >= 2 && PhotonNetwork.IsMasterClient){
             startButton.SetActive(true);
         }else{
             startButton.SetActive(false);
