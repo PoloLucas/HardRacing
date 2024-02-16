@@ -13,9 +13,7 @@ public class NameList : MonoBehaviour{
     public void SetNames(List<VehicleData> vehicle){
         for(int i = 0; i < nameText.Count; i++){
             if(vehicle[i].IsPlayer){
-                if(gameModeManager.IsOnline){
-                    vehicle[i].PlayerName = PhotonNetwork.PlayerList[i].NickName;
-                }else{
+                if(!gameModeManager.IsOnline){
                     vehicle[i].PlayerName = vehicleManager.PlayerDefaultNames[i];
                 }
             }else{
