@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Vehicle1
   m_EditorClassIdentifier: 
   id: 1
-  isPlayer: 1
-  playerName: "wer\u200B"
-  trackPosition: {x: 111.66285, y: 0.5, z: 315.23456}
-  status: 1
+  isPlayer: 0
+  playerName: CPU1
+  trackPosition: {x: 0, y: 0, z: 0}
+  status: 0
   position: 10
-  checkpoint: 5
-  traveledDistance: 5.710371
+  checkpoint: 1
+  traveledDistance: 1
   speed: 0
-  maxSpeed: 35
-  acceleration: 2.2
+  maxSpeed: 32
+  acceleration: 3
   brakingForce: 2
-  turningSpeed: 60
+  turningSpeed: 40

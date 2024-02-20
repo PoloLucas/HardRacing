@@ -12,7 +12,7 @@ public class PlayerCamera : MonoBehaviour{
     void Awake(){
         photonView = GetComponent<PhotonView>();
         if(gameModeManager.IsOnline){
-            if(photonView.IsMine){
+            if(photonView.IsMine){ //Activa la cámara del vehículo jugador para el jugador que lo instanció
                 playerCamera.SetActive(true);
             }
         }else{

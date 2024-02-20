@@ -18,7 +18,7 @@ public class UI : MonoBehaviour{
     private int playerNumber;
 
     void Awake(){
-        if(gameModeManager.IsOnline){
+        if(gameModeManager.IsOnline){ //Cambia el número del jugador que se tomará de referencia para mostrar su información
             playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
         }else{
             playerNumber = 0;
@@ -28,9 +28,11 @@ public class UI : MonoBehaviour{
         names.SetNames(vehicleList);
         InvokeRepeating("UpdatePosition", 0.25f, 0.1f);
         InvokeRepeating("UpdateSpeed", 0.25f, 0.05f);
+        InvokeRepeating("TurnOnFinishPanel", 0.25f, 0.1f);
         //cursor.HideCursor();
     }
 
+    //Mueve los nombres de la lista de posiciones dependiendo de la posición de cada jugador
     public void UpdatePositionList(){
         for(int i = 0; i < vehicleList.Count; i++){
             if(nameList[i] != null){
@@ -39,15 +41,17 @@ public class UI : MonoBehaviour{
         }
     }
 
+    //Actualiza la vista de la posición actual en la carrera
     public void UpdatePosition(){
-        TurnOnFinishPanel();
         positionText.text = vehicleList[playerNumber].Position + ".°";
     }
 
+    //Actualiza la vista del velocímetro con la velocidad actual
     public void UpdateSpeed(){
         speedText.text = vehicleList[playerNumber].Speed + "<size=55%> km/h";
     }
 
+    //Muestra el menú al final de la carrera para cada jugador que pase la línea de meta
     public void TurnOnFinishPanel(){
         if(vehicleList[playerNumber].Status == 2 && finishPanel != null){
             finishPanel.SetActive(true);

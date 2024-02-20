@@ -12,7 +12,7 @@ public class CPUInput : InputType{
 
     void Awake(){
         checkpoints = GameObject.FindWithTag("Checkpoints").transform;
-        foreach(Transform child in checkpoints){
+        foreach(Transform child in checkpoints){ //Extrae la posición y rotación de cada checkpoint
             Transform checkpoint = child.GetComponent<Transform>();
             checkpointList.Add(checkpoint);
         }
@@ -20,12 +20,13 @@ public class CPUInput : InputType{
 
     void Update(){
         cpuRotation = transform.rotation.y;
-        checkpointRotation = checkpointList[vehicleList[id].Checkpoint].rotation.y;
-        direction = Mathf.Abs(cpuRotation - checkpointRotation);
+        checkpointRotation = checkpointList[vehicleList[id].Checkpoint].rotation.y; //Obtiene la rotación del checkpoint actual
+        direction = Mathf.Abs(cpuRotation - checkpointRotation); //Calcula qué tan cerca está el vehículo de tener la misma rotación que el checkpoint
         GetXAxis();
         GetYAxis();
     }
 
+    //Gira hacia la izquierda o derecha si tiene más o menos rotación que el checkpoint
     void GetXAxis(){
         if(direction > 0.005f){
             if(cpuRotation > checkpointRotation){
@@ -38,6 +39,7 @@ public class CPUInput : InputType{
         }
     }
 
+    //Acelera si la rotación está cerca de la del checkpoint, si no, frena
     void GetYAxis(){
         if(direction < 0.15f){
             yAxis = 1;
