@@ -7,12 +7,12 @@ public class SpeedHandicap : MonoBehaviour{
     [SerializeField]private VehicleManager vehicleManager;
 
     void Awake(){
-        if(gameModeManager.PlayerList.Count >= 2){
+        if(gameModeManager.PlayerList.Count >= 2){ //Solo activa la ventaja al jugar con 2 o más jugadores
             InvokeRepeating("ApplyHandicap", 0f, 1f);
-            //VehiclePositioner.checkedPositions += ApplyHandicap;
         }
     }
 
+    //Aplica una ventaja a quienes estén en segunda posición o inferior
     public void ApplyHandicap(){
         foreach(VehicleData vehicle in gameModeManager.PlayerList){
             if(vehicle.Position >= 2){

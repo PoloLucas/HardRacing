@@ -16,9 +16,9 @@ public class RaceFinishMenu : MonoBehaviour{
 
     public void Update(){
         gameModeManager.SetFinishingPlayers();
-        if(gameModeManager.FinishingPlayers == gameModeManager.PlayerList.Count){
-            if(gameModeManager.IsOnline){
-                if(PhotonNetwork.IsMasterClient){
+        if(gameModeManager.FinishingPlayers == gameModeManager.PlayerList.Count){ //Averigua si todos los vehículos de jugador terminaron la carrera
+            if(gameModeManager.IsOnline){ //Cambia los botones que aparecen en solitario y en línea
+                if(PhotonNetwork.IsMasterClient){ //Permite al dueño de la sala regresar a esta
                     lobbyButton.SetActive(true);
                 }
             }else{

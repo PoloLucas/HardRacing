@@ -8,19 +8,20 @@ public class TrackCheckpoints : MonoBehaviour{
     private List<int> nextCheckpoint = new List<int>();
 
     void Awake(){
-        foreach(Transform child in transform){
+        foreach(Transform child in transform){ //Crea una lista con el script de cada checkpoint
             Checkpoint checkpoint = child.GetComponent<Checkpoint>();
             checkpoint.SetCheckpoint(this);
             checkpointList.Add(checkpoint);
         }
-        foreach(VehicleData vehicleData in vehicleList){
+        foreach(VehicleData vehicleData in vehicleList){ //Crea una lista con el checkpoint objetivo de cada jugador
             nextCheckpoint.Add(1);
         }
     }
 
+    //Comprueba si el checkpoint que acaba de atravesar el jugador era el que necesitaba atravesar
     public void PassedCheckpoint(Checkpoint checkpoint, VehicleData vehicle){
-        int passedCheckpoint = nextCheckpoint[vehicle.Id-1];
-        if(checkpointList.IndexOf(checkpoint) == passedCheckpoint){
+        int targetCheckpoint = nextCheckpoint[vehicle.Id-1];
+        if(checkpointList.IndexOf(checkpoint) == targetCheckpoint){
             nextCheckpoint[vehicle.Id-1]++;
             vehicle.Checkpoint++;
             if(checkpoint.tag == "FinishLine"){

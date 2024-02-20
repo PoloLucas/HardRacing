@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleSort : MonoBehaviour{
+    //Ordena la lista de jugadores de acuerdo a su distancia recorrida (checkpoint + porcentaje recorrido hasta el siguiente)
     public void SortByDistance(List<VehicleData> values){
         for(int i = 1; i < values.Count - 1; i++){
             for(int j = 0; j < values.Count - 1; j++){
@@ -17,6 +18,7 @@ public class BubbleSort : MonoBehaviour{
         }
     }
 
+    //Calcula la distancia que recorrió un objeto entre dos puntos, devolviendo un valor decimal entre 0 y 1
     public float InverseLerp(Vector3 a, Vector3 b, Vector3 value){
         Vector3 AB = b - a;
         Vector3 AV = value - a;

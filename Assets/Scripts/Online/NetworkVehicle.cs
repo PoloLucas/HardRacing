@@ -13,7 +13,7 @@ public class NetworkVehicle : MonoBehaviour{
 
     void Start(){
         photonView = GetComponent<PhotonView>();
-        if(gameModeManager.IsOnline && !photonView.IsMine){
+        if(gameModeManager.IsOnline && !photonView.IsMine){ //Desactiva los componentes innecesarios para quienes no controlan este vehículo
             foreach(var script in scriptsToIgnore){
                 script.enabled = false;
             }

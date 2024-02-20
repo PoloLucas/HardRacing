@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour{
     void Awake(){
         networkConfig = GetComponent<NetworkConfig>();
         photonView = GetComponent<PhotonView>();
-        if(SceneManager.GetActiveScene().name == "MainMenu"){
+        if(SceneManager.GetActiveScene().name == "MainMenu"){ //Reinicia vehículos y lista de jugadores al ingresar al menú principal
             ResetVehicles();
             gameModeManager.ResetPlayerList();
             gameModeManager.ResetFinishingPlayers();
@@ -24,15 +24,18 @@ public class GameManager : MonoBehaviour{
         }
     }
 
+    //Carga la escena con el nombre que recibe
     public void LoadScene(string sceneName){
         SceneManager.LoadScene(sceneName);
     }
 
+    //Cierra el juego
     public void QuitGame(){
         Application.Quit();
         Debug.Log("Con este Boton se cierra el Juego");
     }
 
+    //Aplica valores predefinidos necesarios para iniciar una carrera sin conexión
     public void StartOfflineRace(string levelName){
         gameModeManager.IsOnline = false;
         vehicleManager.SetPlayerValues(gameModeManager.VehicleList[0]);
@@ -40,10 +43,12 @@ public class GameManager : MonoBehaviour{
         LoadScene(levelName);
     }
 
+    //Da la orden a todas las instancias conectadas de realizar la función indicada
     public void StartOnlineRace(string levelName){
         photonView.RPC("SyncPlayerInfo", RpcTarget.All, levelName);
     }
 
+    //Aplica valores necesarios y nombres de jugador para iniciar una carrera en línea
     [PunRPC]public void SyncPlayerInfo(string levelName){
         gameModeManager.IsOnline = true;
         foreach(Player player in PhotonNetwork.PlayerList){
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour{
         networkConfig.LoadLevel(levelName);
     }
 
+    //Reinicia valores de vehículo y de progreso de la carrera
     public void ResetVehicles(){
         foreach(VehicleData vehicle in gameModeManager.VehicleList){
             vehicleManager.ResetValues(vehicle);
@@ -61,6 +67,7 @@ public class GameManager : MonoBehaviour{
         }
     }
 
+    //Reinicia únicamente valores de progreso de la carrera
     public void RestartRace(){
         gameModeManager.ResetFinishingPlayers();
         foreach(VehicleData vehicle in gameModeManager.VehicleList){

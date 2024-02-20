@@ -19,6 +19,7 @@ public class VehicleSpawner : MonoBehaviour{
         }
     }
 
+    //Instancia el vehículo del jugador y, si se es dueño de la sala, los CPU de los que no sean jugadores
     public void SpawnOnlineVehicles(){
         int playerNumber = PhotonNetwork.LocalPlayer.GetPlayerNumber();
         PhotonNetwork.Instantiate(playerVehicles[playerNumber].name, spawnerList[playerNumber].position, spawnerList[playerNumber].rotation);
@@ -29,6 +30,7 @@ public class VehicleSpawner : MonoBehaviour{
         }
     }
 
+    //Instancia un vehículo jugador, o CPU si no hay más jugadores
     public void SpawnOfflineVehicles(){
         for(int i = 0; i < spawnerList.Count; i++){
             if(gameModeManager.VehicleList[i].IsPlayer){

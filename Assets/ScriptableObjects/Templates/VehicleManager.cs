@@ -15,6 +15,7 @@ public class VehicleManager : ScriptableObject{
     [SerializeField]private float basePlayerTurningSpeed;
     [SerializeField]private float multiplayerSpeedHandicap;
 
+    //Reinicia todos las variables de los vehículos a sus valores iniciales
     public void ResetValues(VehicleData vehicle){
         vehicle.IsPlayer = false;
         vehicle.PlayerName = cpuDefaultNames[vehicle.Id-1];
@@ -25,6 +26,7 @@ public class VehicleManager : ScriptableObject{
         vehicle.TurningSpeed = baseTurningSpeed;
     }
 
+    //Asigna variables de jugador a un vehículo
     public void SetPlayerValues(VehicleData vehicle){
         vehicle.IsPlayer = true;
         vehicle.MaxSpeed = basePlayerMaxSpeed;
@@ -32,6 +34,7 @@ public class VehicleManager : ScriptableObject{
         vehicle.TurningSpeed = basePlayerTurningSpeed;
     }
 
+    //Restablece todos los valores de progreso que cambiaron durante la carrera
     public void ResetCheckpoints(VehicleData vehicle){
         vehicle.Status = 0;
         vehicle.Checkpoint = 1;
@@ -39,14 +42,12 @@ public class VehicleManager : ScriptableObject{
         vehicle.TrackPosition = new Vector3(0, 0, 0);
     }
 
+    //Asigna un nuevo nombre al vehículo
     public void SetPlayerName(VehicleData vehicle, string newName){
         vehicle.PlayerName = newName;
     }
 
-    public void SetPlayerMaxSpeed(VehicleData vehicle, float newMaxSpeed){
-        vehicle.MaxSpeed = newMaxSpeed;
-    }
-
+    //Añade una ventaja si el jugador no va en primer lugar
     public void ApplySpeedHandicap(VehicleData vehicle, bool isLosing){
         if(isLosing){
             vehicle.MaxSpeed = basePlayerMaxSpeed + multiplayerSpeedHandicap;

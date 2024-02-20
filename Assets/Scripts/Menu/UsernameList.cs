@@ -12,6 +12,7 @@ public class UsernameList : MonoBehaviour{
         InvokeRepeating("SetNickNameList", 0f, 0.5f);
     }
 
+    //Actualiza los nombres de la lista de jugadores de la sala
     public void SetNickNameList(){
         for(int i = 0; i < nameText.Count; i++){
             if(PhotonNetwork.PlayerList.Length > i){
@@ -22,6 +23,7 @@ public class UsernameList : MonoBehaviour{
         }
     }
 
+    //Asigna el nomrbe del juador en línea
     public void SetNickName(TextMeshProUGUI name){
         if(name.text.Length-1 <= 12 && name.text.Length-1 > 0){
             PhotonNetwork.NickName = name.text;

@@ -10,6 +10,7 @@ public class NameList : MonoBehaviour{
     [SerializeField]private VehicleManager vehicleManager;
     [SerializeField]private GameModeManager gameModeManager;
 
+    //Asigna nombres a la lista de jugadores de la carrera dependiendo de quien posea el control del vehículo
     public void SetNames(List<VehicleData> vehicle){
         for(int i = 0; i < nameText.Count; i++){
             if(vehicle[i].IsPlayer){

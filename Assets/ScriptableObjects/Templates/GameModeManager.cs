@@ -9,11 +9,13 @@ public class GameModeManager : ScriptableObject{
     [SerializeField]private bool isOnline;
     [SerializeField]private int finishingPlayers;
 
+    //Cuando se ejecute el juego, aplica estos valores iniciales
     void OnEnable(){
         isOnline = false;
         finishingPlayers = 0;
     }
 
+    //Crea la lista de jugadores tomando la lista de vehículos como base
     public void SetPlayerList(){
         foreach(VehicleData vehicle in vehicleList){
             if(vehicle.IsPlayer){
@@ -22,10 +24,12 @@ public class GameModeManager : ScriptableObject{
         }
     }
 
-    public void ResetPlayerList(){
+    //Borra todos los elementos de la lista de jugadores
+    public void ResetPlayerList(){ 
         playerList.Clear();
     }
 
+    //Determina el número de jugadores que finalizaron una carrera en base a su estado
     public void SetFinishingPlayers(){
         finishingPlayers = 0;
         foreach(VehicleData vehicle in playerList){
@@ -35,6 +39,7 @@ public class GameModeManager : ScriptableObject{
         }
     }
 
+    //Reinicia el valor de jugadores que terminaron la carrera
     public void ResetFinishingPlayers(){
         finishingPlayers = 0;
     }
